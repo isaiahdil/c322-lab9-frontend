@@ -33,7 +33,8 @@
 
       async function getAll() {
         let host = "http://localhost:8080";
-        return fetch(host + "/ducks")
+        const headers = {'Authorization' : 'Bearer ${configuration.token()}'};
+        return fetch(host + "/ducks", {headers})
           .then((response) => response.json())
           .catch((error) => {
             console.log(error);
